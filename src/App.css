@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   height: 550px;
-  width: 35%;
+  width: 37%;
   box-shadow: 11px 11px 11px 11px rgb(207, 207, 207);
   padding-top: 15px;
   border-radius: 35px;
@@ -65,9 +65,13 @@ input {
 .third-input {
   margin-right: 180px;
   font-size: 18px;
-  padding-top: 2px;
+  /* margin-left:10px; */
 }
 
+.fourth-input {
+  padding-top: 13px;
+  margin: 10px;
+}
 button {
   width: 115px;
   height: 45px;
@@ -84,12 +88,22 @@ button {
 .link {
   font-size: 20px;
   font-weight: 150;
-  padding: 5px;
+  padding: 7px;
   margin-right: 160px;
 }
-.signup{
+.signup {
   padding-top: 10px;
 }
 a {
   color: rgb(0, 0, 0);
+}
+.main2 {
+  display: flex;
+  justify-content: center;
+  height: 650px;
+  width: 40%;
+  box-shadow: 11px 11px 11px 11px rgb(207, 207, 207);
+  padding-top: 15px;
+  border-radius: 35px;
+  background-color: white;
 }
