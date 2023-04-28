@@ -1,21 +1,19 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './component/LoginPage'
+import Signup from './component/SignUp'
 import './App.css'
 
 export default function App() {
-    return (
-            <div>
-              <Router>
-                <Routes>
-                    {/* <Route exact path="/" component={ LandingPage } /> */}
-                    <Route exact path="/login" element={<Login/>}/>
-                    {/* <Route path="/register" component={ Register } /> */}
-                    {/* <Route path="/forget-password" component={ ForgetPasswordPage } /> */}
-                    {/* <Route path="/home" component={ HomePage } /> */}
-                </Routes>
-        </Router>
-            </div>
-    )
+  return (
+    <div>
+      <Router>
+        <Routes>
+          <Route  path="/login" element={<Login />} />
+          <Route  path="/signup" element={<Signup />} />
+        </Routes>
+      </Router>
+    </div>
+  )
 }
 
