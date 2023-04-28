@@ -1,0 +1,95 @@
+.main {
+  text-align: center;
+  display: flex;
+  padding: 30px 0 10px 0;
+  justify-content: center;
+  background-color: rgb(252, 252, 252);
+}
+
+.sub-main {
+  display: flex;
+  justify-content: center;
+  height: 550px;
+  width: 35%;
+  box-shadow: 11px 11px 11px 11px rgb(207, 207, 207);
+  padding-top: 15px;
+  border-radius: 35px;
+  background-color: white;
+}
+
+.imgs {
+  padding-top: 30px;
+  justify-content: center;
+  display: flex;
+}
+.container-image {
+  background-color: rgb(223, 221, 221);
+  border-radius: 150px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 115px;
+  width: 115px;
+}
+.profile {
+  height: 110px;
+  width: 110px;
+  border-radius: 130px;
+}
+
+input {
+  width: 330px;
+  height: 55px;
+  border-radius: 20px;
+  box-shadow: 0px 5px 5px 0px #efe2d3;
+  border: none;
+  outline: none;
+  background-color: #fff;
+}
+
+.email {
+  margin-top: 5px;
+  height: 40px;
+  width: 50px;
+  position: absolute;
+  padding: 11px 0 0 25px;
+}
+
+.name {
+  padding-left: 70px;
+  font-size: 20px;
+}
+.second-input {
+  padding-top: 20px;
+}
+.third-input {
+  margin-right: 180px;
+  font-size: 18px;
+  padding-top: 2px;
+}
+
+button {
+  width: 115px;
+  height: 45px;
+  border-radius: 15px;
+  background-color: #fc0352;
+  color: white;
+  font-size: 25px;
+  border: none;
+}
+.login-button {
+  padding-top: 35px;
+}
+
+.link {
+  font-size: 20px;
+  font-weight: 150;
+  padding: 5px;
+  margin-right: 160px;
+}
+.signup{
+  padding-top: 10px;
+}
+a {
+  color: rgb(0, 0, 0);
+}
