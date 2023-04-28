@@ -4,11 +4,11 @@ const userDetailsSchema=new mongoose.Schema(
     {
         Firstname:String,
         Lastname:String,
-        email:String,
+        email:{type:String,unique:true},
         password:String,
     },
     {
-        collection:"UserInfo"
+        collection:"UserInfo" 
     }
 )
 mongoose.model("UserInfo",userDetailsSchema)

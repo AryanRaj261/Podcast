@@ -1,18 +1,17 @@
+// require('./backend/signup_B')
 import icon from "../image/c.png"
 import profile from "../image/b.jpg";
 import ema from "../image/email.jpg";
 import pass from "../image/pass.png";
-// require('../component/SignUp')
 import { useState } from "react";
-import '../App.js'
-function Signup() {
+function SignUp() {
     const [first,setFirst]=useState('')
     const [last,setLast]=useState('')
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     function handleSubmit(event){
         event.preventDefault();
-        fetch("http://localhost:3000/signup",{
+        fetch("http://localhost:5000/signup",{
             method:"POST",
             crossDomain:true,
             headers:{
@@ -27,7 +26,7 @@ function Signup() {
                 password,
             }),
         }).then((res)=>res.json())
-        .then((data)=>console.log(data,"registed"));
+        .then((data)=>console.log(data,"registered"));
 
     }
     return (
@@ -78,4 +77,4 @@ function Signup() {
         </>
     );
 }
-export default Signup;
+export default SignUp;

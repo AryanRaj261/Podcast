@@ -7,7 +7,20 @@ function Login() {
   const [password,setPassword]=useState('');
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log({email, password });
+    fetch("http://localhost:5000/login",{
+            method:"POST",
+            crossDomain:true,
+            headers:{
+                "Content-Type":"application/json",
+                Accept:"application/json",
+                "Access-Control-Allow-Origin":"*",
+            },
+            body:JSON.stringify({
+                email,
+                password,
+            }),
+        }).then((res)=>res.json())
+        .then((data)=>console.log(data,"registered"));
   };
 
     return (
@@ -29,7 +42,7 @@ function Login() {
                             </div>
                             <div className="second-input">
                                 <img src={pass} alt="pass" className="email" />
-                                <input type="password" placeholder="Password" className="name" onChange={e=>setEmail(e.target.value)} />
+                                <input type="password" placeholder="Password" className="name" onChange={e=>setPassword(e.target.value)} />
                             </div>
                             <p className="link">
                                 <a href="/">Forgot password ?</a>
