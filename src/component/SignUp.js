@@ -1,10 +1,35 @@
 import icon from "../image/c.png"
 import profile from "../image/b.jpg";
-import email from "../image/email.jpg";
+import ema from "../image/email.jpg";
 import pass from "../image/pass.png";
-
+// require('../component/SignUp')
+import { useState } from "react";
 import '../App.js'
 function Signup() {
+    const [first,setFirst]=useState('')
+    const [last,setLast]=useState('')
+    const [email,setEmail]=useState('');
+    const [password,setPassword]=useState('');
+    function handleSubmit(event){
+        event.preventDefault();
+        fetch("http://localhost:3000/signup",{
+            method:"POST",
+            crossDomain:true,
+            headers:{
+                "Content-Type":"application/json",
+                Accept:"application/json",
+                "Access-Control-Allow-Origin":"*",
+            },
+            body:JSON.stringify({
+                Firstname:first,
+                Lastname:last,
+                email,
+                password,
+            }),
+        }).then((res)=>res.json())
+        .then((data)=>console.log(data,"registed"));
+
+    }
     return (
         <>
             <div className="main">
@@ -15,32 +40,38 @@ function Signup() {
                                 <img src={profile} alt="profile" className="profile" />
                             </div>
                         </div>
+                        <form onSubmit={handleSubmit}>
                         <div>
                             <h2 >Sign Up</h2>
                             <div className="fourth-input">
                             <img src={icon} alt="email" className="email" />
-                                <input type="name" placeholder="First name" className="name" />
+                                <input type="name" placeholder="First name" className="name" onChange={e=>{setFirst(e.target.value
+                                 )}}/>
                             </div>
                             <div className="fourth-input">
                             <img src={icon} alt="pass" className="email" />
-                                <input type="name" placeholder="Last name" className="name" />
+                                <input type="name" placeholder="Last name" className="name" onChange={e=>{setLast(e.target.value
+                                 )}} />
                             </div>
                             <div>
-                                <img src={email} alt="email" className="email" />
-                                <input type="email" placeholder="Username" className="name" />
+                                <img src={ema} alt="email" className="email" />
+                                <input type="email" placeholder="Email" className="name" onChange={e=>{setEmail(e.target.value
+                                 )}} />
                             </div>
                             <div className="second-input">
                                 <img src={pass} alt="pass" className="email" />
-                                <input type="password" placeholder=" New Password" className="name" />
+                                <input type="password" placeholder="Password" className="name" onChange={e=>{setPassword(e.target.value
+                                 )}}/>
                             </div>
 
                             <div className="login-button">
-                                <button>Sign Up</button>
+                                <button type="submit">Sign Up</button>
                             </div>
                             <div className="signup">
                                 <a href="/Login">Already have account</a>
                             </div>
                         </div>
+                        </form>
                     </div>
                 </div>
             </div>

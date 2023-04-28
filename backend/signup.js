@@ -2,8 +2,9 @@ require('../models/userDetails')
 const express=require("express")
 const app=express()
 const mongoose=require("mongoose") 
-
+const cors=require('cors')
 app.use(express.json())
+app.use(cors())
 app.listen(5000,()=>{
     console.log("Server running on port: 5000")
 })
@@ -16,12 +17,13 @@ mongoose.connect(mongoUrl,{
 
 const User=mongoose.model("UserInfo")
 
-app.post("/register",async(req,res)=>{
-    const {name,email,password}=req.body;
+app.post("/singup",async(req,res)=>{
+    const {Firstame,Lastname,email,password}=req.body;
     try {
         await User.create(
             {
-                name,
+                Firstame,
+                Lastname,
                 email,
                 password
             }
