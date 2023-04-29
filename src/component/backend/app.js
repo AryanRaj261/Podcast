@@ -1,4 +1,5 @@
 require('../../../models/userDetails')
+require('../../../models/Post')
 const express=require("express")
 const app=express()
 const mongoose=require("mongoose") 
@@ -56,4 +57,39 @@ app.post("/login",async(req,res)=>{
         }
     }
     res.json({status:"Invalid credentials"})
+})
+
+const Post=mongoose.model("Post")
+
+// create Post
+app.post('/createpost',async(req,res)=>{
+    const {ArtistName,Podcast} = req.body 
+    if(!ArtistName || !Podcast){
+        return  res.status(422).json({error:"Plase add all the fields"})
+      }
+    try {
+        
+        await Post.create(
+            {
+                ArtistName,
+                Podcast
+            }
+        );
+        res.send({"Status":"Data received"})
+    } catch (error) {
+        return res.send({"Status":"Error"})
+    }
+});
+
+// getAll post
+app.get('/allpost',async(req,res)=>{
+    Post.find()
+    .populate("ArtistName","ArtistNname Podcast")
+    .sort('-createdAt')
+    .then((posts)=>{
+        res.json({posts})
+    }).catch(err=>{
+        console.log(err)
+    })
+    
 })
